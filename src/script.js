@@ -1,8 +1,3 @@
-
-
-
-
-
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import * as dat from 'lil-gui'
@@ -22,18 +17,31 @@ const scene = new THREE.Scene()
 /**
  * Lights
  */
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
-// scene.add(ambientLight)
 
+//AmbientLigh
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+scene.add(ambientLight)
+
+//directionalLight
 const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
 directionalLight.position.set(1, 0.25, 0)
-// scene.add(directionalLight)
+scene.add(directionalLight)
 
+//hemisphereLight
 const hemisphereLight = new THREE.HemisphereLight(0xff0000, 0x0000ff, 0.3)
-// scene.add(hemisphereLight)
+scene.add(hemisphereLight)  
 
-const pointLight = new THREE.PointLight(0xff9000, 0.5)
+//pointLight
+const pointLight = new THREE.PointLight(0xff9000, 0.5, 10, 2)
+pointLight.position.set(1, -0.5, 2)
 scene.add(pointLight)
+
+//rectAreaLight
+const rectAreaLight = new THREE.RectAreaLight(0x4e00ff, 2, 1, 1)
+rectAreaLight.position.set(-1.5, 0, 1.5 )
+rectAreaLight.lookAt( new THREE.Vector3())
+scene.add(rectAreaLight)
+
 
 
 /**
@@ -41,7 +49,7 @@ scene.add(pointLight)
  */
 // Material
 const material = new THREE.MeshStandardMaterial()
-material.roughness = 0.4
+material.roughness = 0.5
 
 // Objects
 const sphere = new THREE.Mesh(
