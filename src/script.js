@@ -24,9 +24,9 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
 scene.add(ambientLight)
 
 //directionalLight
-const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
-directionalLight.position.set(1, 0.25, 0)
-scene.add(directionalLight)
+const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.5)
+directionalLight.position.set(0, 0.90, 1)
+// scene.add(directionalLight)
 
 //hemisphereLight
 const hemisphereLight = new THREE.HemisphereLight(0xff0000, 0x0000ff, 0.3)
